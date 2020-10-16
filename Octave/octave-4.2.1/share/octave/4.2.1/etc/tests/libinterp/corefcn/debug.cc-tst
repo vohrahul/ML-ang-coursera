@@ -1,0 +1,27 @@
+## DO NOT EDIT!  Generated automatically from debug.cc by Make.
+%!test
+%! dbclear all;   # Clear out breakpoints before test
+%! dbstop help;
+%! dbstop in ls;
+%! dbstop help at 100;
+%! dbstop in ls 100;
+%! dbstop help 201 if a==5;
+%! dbstop if error Octave:undefined-function;
+%! s = dbstatus;
+%! dbclear all;
+%! assert ({s.bkpt(:).name}, {"help", "help", "help>do_contents", "ls", "ls"});
+%! assert ([s.bkpt(:).line], [48, 100, 201, 58, 100]);
+%! assert (s.errs, {"Octave:undefined-function"});
+%!test
+%! dbclear all;   # Clear out breakpoints before test
+%! dbstop @ftp/dir;
+%! dbstop @audioplayer/set 70;
+%! dbstop quantile>__quantile__;
+%! dbstop ls;
+%! s = dbstatus;
+%! dbclear all;
+%! assert (s(1).name, "@audioplayer/set>setproperty");
+%! assert (s(2).name, "@ftp/dir");
+%! assert (s(3).name, "ls");
+%! assert (s(4).name, "quantile>__quantile__");
+%! assert (s(2).file(end-10:end), [filesep "@ftp" filesep "dir.m"]);

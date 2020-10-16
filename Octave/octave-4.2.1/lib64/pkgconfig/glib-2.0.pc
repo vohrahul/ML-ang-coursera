@@ -1,0 +1,16 @@
+prefix=/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+glib_genmarshal=${exec_prefix}/bin/glib-genmarshal
+gobject_query=${exec_prefix}/bin/gobject-query
+glib_mkenums=${exec_prefix}/bin/glib-mkenums
+
+Name: GLib
+Description: C Utility Library
+Version: 2.48.1
+Requires.private: libpcre
+Libs: -L${libdir} -lglib-2.0 -lintl 
+Libs.private:  -lws2_32 -lole32 -lwinmm -lshlwapi -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -lpcre  -lintl    
+Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -mms-bitfields

@@ -1,0 +1,10 @@
+Name: general
+Version: 2.0.0
+Date: 2015-05-27
+Author: various authors
+Maintainer: Octave-Forge community <maintainers@octave.org>
+Title: General
+Description: General tools for Octave.
+Depends: octave (>= 4.0.0)
+License: GPLv3+, modified BSD, public domain
+Url: http://octave.sf.net

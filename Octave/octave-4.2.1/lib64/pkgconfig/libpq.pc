@@ -1,0 +1,9 @@
+Name: libpq
+Description: PostgreSQL libpq library
+Url: http://www.postgresql.org/
+Version: 9.4.1
+Requires: 
+Requires.private: 
+Cflags: -I/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/include
+Libs: -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -lpq
+Libs.private: -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -lshell32 -lwsock32 -lws2_32 -lsecur32

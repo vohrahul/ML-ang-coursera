@@ -1,0 +1,11 @@
+prefix=/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libtiff
+Description:  Tag Image File Format (TIFF) library.
+Version: 4.0.7
+Libs: -L${libdir} -ltiff
+Libs.private: -llzma -ljpeg -lz 
+Cflags: -I${includedir}

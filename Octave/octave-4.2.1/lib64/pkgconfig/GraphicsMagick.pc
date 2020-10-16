@@ -1,0 +1,13 @@
+prefix=/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/GraphicsMagick
+
+
+Name: GraphicsMagick
+Version: 1.3.25
+Description: GraphicsMagick image processing library
+Requires.private: libxml-2.0
+Libs: -L${libdir} -lGraphicsMagick
+Libs.private: -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -lGraphicsMagick -llcms2 -ltiff -lfreetype -ljasper -ljpeg -lpng16 -llzma -lbz2 -lxml2 -lz -lgdi32 -lm -lpthread
+Cflags: -I${includedir}  -D_DLL -D_MT

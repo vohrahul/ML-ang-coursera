@@ -1,0 +1,36 @@
+miscellaneous >> Miscellaneous functions
+miscellaneous
+ asci
+ cell2cell
+ chebyshevpoly
+ clip
+ colorboard
+ csv2latex
+ gameoflife
+ hermitepoly
+ hilbert_curve
+ infoskeleton
+ laguerrepoly
+ legendrepoly
+ match
+ normc
+ normr
+ nze
+ partcnt
+ partint
+ peano_curve
+ physical_constant
+ publish
+ read_options
+ reduce
+ rolldices
+ sample
+ slurp_file
+ solvesudoku
+ text_waitbar
+ textable
+ truncate
+ units
+ zagzig
+ z_curve
+ zigzag

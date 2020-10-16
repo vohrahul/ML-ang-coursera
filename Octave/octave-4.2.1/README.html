@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>GNU Octave</title>
+<style TYPE="text/css">
+<!--
+body {
+}
+li {
+  margin-bottom: 1.5em
+}
+-->
+</style>
+</head>
+<body>
+<h2>Welcome</h2>
+<p>
+Thank you for installing GNU Octave!
+</p>
+<p>
+Octave 4.2 is a major release with many improvements in Matlab compatibility
+as well as significant cleanup of the core C++ code.
+</p>
+<p>
+A full list of changes can be found in the Release Notes from the News menu.
+</p>
+<h2>BLAS Library Selection</h2>
+<p>
+During the installation a default BLAS library was selected. The installer
+contains 2 BLAS implementations,
+the <a href="http://www.netlib.org/blas/">NetLib reference BLAS</a>
+and <a href="http://www.openblas.net/">OpenBLAS</a>.
+</p>
+<p>
+The choice of library may be changed after installation by copying
+either librefblas.dll or libopenblas.dll to the file libblas.dll in the bin
+folder of the Octave installation.
+</p>
+<h2>Included Octave Forge Packages</h2>
+<p>
+A number of Octave-Forge packages have been included with Octave, however they
+must be loaded in order to use them.
+</p>
+<p>
+<ul>
+<li>To list the available installed packages, use the
+<tt>pkg list</tt> command.</li>
+<li>To load a package in order to use its functions, use the
+<tt>pkg load PACKAGENAME</tt> command.</li>
+</ul>
+</p>
+<p>
+Other packages are available from
+<a href="http://octave.sourceforge.net/">Octave-Forge</a>.
+</p>
+<h2>Issues</h2>
+Please report any problems with Octave on the
+<a href="http://octave.org/bugs.html">Octave website</a>.
+</body>
+</html>

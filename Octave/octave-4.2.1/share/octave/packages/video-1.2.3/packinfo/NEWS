@@ -1,0 +1,16 @@
+Summary of important user-visible changes for video 1.2.3:
+-------------------------------------------------------------------
+ ** none (bugfix release #48846)
+
+Summary of important user-visible changes for video 1.2.2:
+-------------------------------------------------------------------
+ ** none (bugfix release for Windows)
+
+Summary of important user-visible changes for video 1.2.1:
+-------------------------------------------------------------------
+
+ ** Builds with GNU Octave 4.0.0
+
+ ** Fix to read/write metadata title and comment
+
+ ** Package is no longer automatically loaded.

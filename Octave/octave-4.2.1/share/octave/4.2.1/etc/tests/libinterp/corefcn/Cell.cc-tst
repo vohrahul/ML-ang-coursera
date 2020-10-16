@@ -1,0 +1,7 @@
+## DO NOT EDIT!  Generated automatically from Cell.cc by Make.
+%!test
+%! a = {"foo", "bar"};
+%! assert (a(), a);
+%!error <wrong type argument 'cell array'> nnz ({0, 1, 2})
+%!error <wrong type argument 'cell array'> nnz (cell ())
+%!error <wrong type argument 'cell array'> nnz ({"foo", "bar"})

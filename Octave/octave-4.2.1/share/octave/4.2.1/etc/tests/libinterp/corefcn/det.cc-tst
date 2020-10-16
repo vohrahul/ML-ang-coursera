@@ -1,0 +1,6 @@
+## DO NOT EDIT!  Generated automatically from det.cc by Make.
+%!assert (det ([1, 2; 3, 4]), -2, 10*eps)
+%!assert (det (single ([1, 2; 3, 4])), single (-2), 10*eps ("single"))
+%!error det ()
+%!error det (1, 2)
+%!error <must be a square matrix> det ([1, 2; 3, 4; 5, 6])

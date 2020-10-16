@@ -1,0 +1,14 @@
+prefix=/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32
+exec_prefix=/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32
+libdir=/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib
+includedir=/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/include
+
+Name: FreeType 2
+URL: http://freetype.org
+Description: A free, high-quality, and portable font engine.
+Version: 18.6.12
+Requires:
+Requires.private: zlib, libpng
+Libs: -L${libdir} -lfreetype
+Libs.private: 
+Cflags: -I${includedir}/freetype2

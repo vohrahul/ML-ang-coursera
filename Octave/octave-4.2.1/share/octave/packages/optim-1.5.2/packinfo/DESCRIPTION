@@ -1,0 +1,11 @@
+Name: optim
+Version: 1.5.2
+Date: 2016-09-18
+Author: various authors
+Maintainer: Olaf Till <i7tiol@t-online.de>
+Title: Optimization.
+Description: Non-linear optimization toolkit.
+Depends: octave (>= 3.6.0), struct (>= 1.0.12)
+Autoload: no
+License: GPLv3+, modified BSD, public domain
+Url: http://octave.sf.net

@@ -1,0 +1,160 @@
+# ISO Currency Codes
+
+AED                    unitedarabemiratesdirham
+ANG                    netherlandsantillesguilder
+AOA                    angolakwanza
+ARS                    argentinapeso
+AUD                    australiadollar
+BBD                    barbadosdollar
+BHD                    bahraindinar
+BMD                    bermudadollar
+BND                    bruneidollar
+BRL                    brazilreal
+BSD                    bahamasdollar
+CAD                    canadadollar
+CHF                    swissfranc
+CLP                    chilepeso
+CNY                    chinayuan
+COP                    colombiapeso
+CVE                    capeverdeescudo
+CZK                    czechrepublickoruna
+DKK                    denmarkkrone
+DOP                    dominicanrepublicpeso
+EGP                    egyptpound
+EUR                    euro
+FJD                    fijidollar
+GBP                    unitedkingdompound
+GYD                    guyanadollar
+HKD                    hongkongdollar
+HUF                    hungariaforint
+IDR                    indonesiarupiah
+ILS                    israelnewshekel
+INR                    indiarupee
+IRR                    iranrial
+JMD                    jamaicadollar
+JPY                    japanyen
+KES                    kenyaschilling
+KHR                    cambodiariel
+KRW                    southkoreawon
+KWD                    kuwaitdinar
+KYD                    caymanislandsdollar
+KZT                    kazakhstantenge
+MAD                    moroccodirham
+MOP                    macaupataca
+MXN                    mexicopeso
+MYR                    malaysiaringgit
+MZN                    mozambicanmetical
+NOK                    norwaykrone
+NZD                    newzealanddollar
+OMR                    omanrial
+PAB                    panamabalboa
+PEN                    peruneuevosol
+PHP                    philippinepeso
+PKR                    pakistanrupee
+PLN                    polandzloty
+QAR                    qatarrial
+RON                    romanianewlei
+RSD                    serbiadinar
+RUB                    russiarouble
+SAR                    saudiarabiariyal
+SEK                    swedenkrona
+SGD                    singaporedollar
+STD                    saotomeandprincipedobra
+SYP                    syrianpound
+THB                    thailandbaht
+TRY                    turkeylira
+TTD                    trinidadandtobagodollar
+TWD                    taiwandollar
+UAH                    ukrainehryvnia
+USD                    unitedstatesdollar
+VEF                    venezuelanbolivarfuerte
+VND                    vietnamdong
+XAF                    centralafricancfafranc
+XCD                    eastcaribbeandollar
+XOF                    westafricancfafranc
+YER                    yemenrial
+ZAR                    southafricarand
+
+# Currency exchange rates from Time Genie (www.timegenie.com)
+
+!message Currency exchange rates from 2013-07-11
+
+unitedarabemiratesdirham    1|4.8013 euro
+netherlandsantillesguilder  1|2.3399 euro
+angolakwanza                1|125.53 euro
+argentinapeso               1|6.7706 euro
+australiadollar             1|1.3015 euro
+barbadosdollar              1|2.6144 euro
+bahraindinar                1|0.49281 euro
+bermudadollar               1|1.3072 euro
+bruneidollar                1|1.6128 euro
+brazilreal                  1|2.5997 euro
+bahamasdollar               1|1.3072 euro
+canadadollar                1|1.3133 euro
+swissfranc                  1|1.2499 euro
+chilepeso                   1|617.35 euro
+chinayuan                   1|7.9050 euro
+colombiapeso                1|2388.7 euro
+capeverdeescudo             1|110.64 euro
+czechrepublickoruna         1|26.003 euro
+denmarkkrone                1|7.4539 euro
+dominicanrepublicpeso       1|53.726 euro
+egyptpound                  1|9.0680 euro
+euro                        1.2864 US$
+fijidollar                  1|2.3149 euro
+unitedkingdompound          1|0.84640 euro
+guyanadollar                1|274.90 euro
+hongkongdollar              1|9.9849 euro
+hungariaforint              1|292.27 euro
+indonesiarupiah             1|12549.23 euro
+israelnewshekel             1|4.7202 euro
+indiarupee                  1|70.4527 euro
+iranrial                    1|16052 euro
+jamaicadollar               1|129.25 euro
+japanyen                    1|132.04 euro
+kenyaschilling              1|109.53 euro
+cambodiariel                1|5254.9 euro
+southkoreawon               1|1436.74 euro
+kuwaitdinar                 1|0.37200 euro
+caymanislandsdollar         1|1.0719 euro
+kazakhstantenge             1|197.73 euro
+moroccodirham               1|11.141 euro
+macaupataca                 1|10.449 euro
+mexicopeso                  1|15.6385 euro
+malaysiaringgit             1|3.8612 euro
+mozambicanmetical           1|40.265 euro
+norwaykrone                 1|7.5415 euro
+newzealanddollar            1|1.5662 euro
+omanrial                    1|0.50327 euro
+panamabalboa                1|1.3072 euro
+peruneuevosol               1|3.4514 euro
+philippinepeso              1|53.086 euro
+pakistanrupee               1|128.69 euro
+polandzloty                 1|4.1827 euro
+qatarrial                   1|4.7587 euro
+romanianewlei               1|4.3355 euro
+serbiadinar                 1|110.77 euro
+russiarouble                1|40.4920 euro
+saudiarabiariyal            1|4.9024 euro
+swedenkrona                 1|8.5960 euro
+singaporedollar             1|1.6045 euro
+saotomeandprincipedobra     1|24488 euro
+syrianpound                 1|91.646 euro
+thailandbaht                1|38.270 euro
+turkeylira                  1|2.3464 euro
+trinidadandtobagodollar     1|8.3922 euro
+taiwandollar                1|38.615 euro
+ukrainehryvnia              1|10.601 euro
+venezuelanbolivarfuerte     1|8.2250 euro
+vietnamdong                 1|27366 euro
+centralafricancfafranc      1|657.42 euro
+eastcaribbeandollar         1|3.5294 euro
+westafricancfafranc         1|658.59 euro
+yemenrial                   1|281.05 euro
+southafricarand             1|11.9820 euro
+
+# Precious metals prices from http://services.packetizer.com/spotprices/
+
+goldprice          1285.72 US$/troyounce
+platinumprice      1415.00 US$/troyounce
+silverprice        20.19 US$/troyounce

@@ -1,0 +1,11 @@
+Name: sockets
+Version: 1.2.0
+Date: 2014-12-03
+Author: John Swensen <jpswensen@comcast.net>
+Maintainer: Paul Dreik <slask@pauldreik.se>
+Title: Sockets
+Description: Socket functions for networking from within octave.
+Categories: Sockets
+Depends: octave (>= 3.2.0)
+License: GPLv3+
+Url: http://octave.sourceforge.net

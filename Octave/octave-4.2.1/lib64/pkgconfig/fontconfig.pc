@@ -1,0 +1,18 @@
+prefix=/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+sysconfdir=${prefix}/etc
+localstatedir=${prefix}/var
+PACKAGE=fontconfig
+confdir=${sysconfdir}/fonts
+cachedir=LOCAL_APPDATA_FONTCONFIG_CACHE
+
+Name: Fontconfig
+Description: Font configuration and customization library
+Version: 2.12.1
+Requires:  freetype2
+Requires.private: 
+Libs: -L${libdir} -lfontconfig
+Libs.private: -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -lexpat -lfreetype  
+Cflags: -I${includedir} -I/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/include -I/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/include/freetype2  

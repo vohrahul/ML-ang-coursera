@@ -1,0 +1,88 @@
+#!/usr/bin/python2
+
+# Version 2  
+# 9 July 2013
+#
+# Modified to use xml format output from timegenie instead of text file
+
+import datetime
+import sys
+import urllib
+import xml.etree.ElementTree as ET
+
+outfile='/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/share/units/currency.units'
+
+outstr = '# ISO Currency Codes\n\n'
+
+if len(sys.argv)==2:
+  outfile = sys.argv[1]
+elif len(sys.argv)>2:
+  sys.stderr.write('Usage: {0} [filename]\n\n'.format(sys.argv[0]))
+  sys.stderr.write('Update currency information for \'units\' into the specified\n')
+  sys.stderr.write('filename or the default location, \'{0}\'.\n'.format(outfile))
+  sys.exit(1)
+
+try:
+  currencies = ET.parse(urllib.urlopen('http://rss.timegenie.com/forex.xml')).findall('data')
+except IOError, exc:
+  sys.stderr.write('Error connecting to currency server. {0}\n'.format(exc))
+  sys.exit(1)
+
+# print codes here
+
+codes = [x.find('code').text for x in currencies]
+names = [x.find('description').text for x in currencies]
+values = [x.find('rate').text for x in currencies]
+
+names = [x.lower().replace(' ','') for x in names]
+
+outstr += '\n'.join([x + ' '*20 + y for x,y in zip(codes,names)])
+
+usd = codes.index('USD')
+euro = codes.index('EUR')
+usdval = values[usd] 
+
+values = ['1|' + x +' euro' for x in values]
+values[euro] = usdval + ' US$'
+
+del names[usd]
+del values[usd]
+
+# print rates here
+
+now = datetime.datetime.now()
+outstr += '\n\n# Currency exchange rates from Time Genie (www.timegenie.com)\n'
+outstr += '\n!message Currency exchange rates from ' + now.strftime('%Y-%m-%d') + '\n\n'
+
+maxlen = max(map(len,names)) + 2
+outstr += '\n'.join([x.ljust(maxlen) + y for x,y in zip(names, values)])
+
+
+# precious metals prices
+
+# Another source for this data might be 
+# http://www.xmlcharts.com/cache/precious-metals.xml
+
+outstr += '\n\n# Precious metals prices from http://services.packetizer.com/spotprices/\n\n'
+
+try:
+  spotprices = ET.parse(urllib.urlopen('http://services.packetizer.com/spotprices/?f=xml'))
+except IOError, exc:
+  sys.stderr.write('Error connecting to spotprices server. {0}\n'.format(exc))
+  sys.exit(1)
+
+metals = ['gold','platinum','silver']
+
+for metal in metals:
+  outstr += '{0}    {1} US$/troyounce\n'.format((metal+'price').ljust(15), spotprices.find(metal).text)
+
+try:
+  if outfile == '-':
+    outfile = sys.stdout
+  else:
+    outfile = open(outfile,'w')
+except IOError, exc:
+  sys.stderr.write('Unable to write to output file. {0}\n'.format(exc))
+  sys.exit(1)
+
+outfile.write(outstr)

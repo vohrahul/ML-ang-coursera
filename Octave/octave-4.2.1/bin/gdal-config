@@ -1,0 +1,68 @@
+#!/bin/sh
+CONFIG_LIBS="-L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -lgdal"
+CONFIG_DEP_LIBS=" -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -lgeos_c -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -lsqlite3 -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -lexpat -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32 -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -ljasper -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32 -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -lgif -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32 -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -ljpeg -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -lgeotiff -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -ltiff -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32 -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -lgta -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32 -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -lpng -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/lib -lpq -lz -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32 -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib  -ljpeg -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -ltiff  -lws2_32 -lpcre   -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -lcurl -lssh2 -lssh2 -lws2_32 -lcrypt32 -lwldap32 -lz -lws2_32           -liconv  -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -lxml2 -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -lz -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib -llzma -liconv -lws2_32 "
+CONFIG_PREFIX="/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32"
+CONFIG_CFLAGS="-I/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/include"
+CONFIG_DATA="/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/share/gdal"
+CONFIG_VERSION="1.11.5"
+CONFIG_OGR_ENABLED=yes
+CONFIG_FORMATS="gxf gtiff hfa aigrid aaigrid ceos ceos2 iso8211 xpm sdts raw dted mem jdem envisat elas fit vrt usgsdem l1b nitf bmp pcidsk airsar rs2 ilwis rmf leveller sgi srtmhgt idrisi gsg ingr ers jaxapalsar dimap gff cosar pds adrg coasp tsx terragen blx msgn til r northwood saga xyz hf2 kmlsuperoverlay ctg e00grid zmap ngsgeoid iris map wcs wms grib bsb jpeg2000 gif jpeg gta png  rik ozi pdf rasterlite mbtiles postgisraster arg"
+usage()
+{
+	cat <<EOF
+Usage: gdal-config [OPTIONS]
+Options:
+	[--prefix[=DIR]]
+	[--libs]
+	[--dep-libs]
+	[--cflags]
+	[--datadir]
+	[--version]
+	[--ogr-enabled]
+	[--formats]
+EOF
+	exit $1
+}
+
+if test $# -eq 0; then
+	usage 1 1>&2
+fi
+
+case $1 in 
+  --libs)
+    echo $CONFIG_LIBS
+    ;;
+
+  --dep-libs)
+    echo $CONFIG_DEP_LIBS
+    ;;
+
+  --cflags)
+    echo $CONFIG_CFLAGS
+    ;;
+
+  --datadir)
+    echo $CONFIG_DATA
+    ;;
+
+  --prefix)
+    echo $CONFIG_PREFIX
+    ;;
+
+  --version)
+    echo $CONFIG_VERSION
+    ;;
+
+  --ogr-enabled)
+    echo $CONFIG_OGR_ENABLED
+    ;;
+
+  --formats)
+    echo $CONFIG_FORMATS
+    ;;
+
+  *)
+    usage 1 1>&2
+    ;;
+
+esac

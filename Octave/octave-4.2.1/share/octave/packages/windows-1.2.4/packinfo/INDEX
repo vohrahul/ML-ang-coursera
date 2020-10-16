@@ -1,0 +1,17 @@
+windows >> Windows
+Windows Utilities
+ grab
+ win32_MessageBox
+ win32_ReadRegistry
+ win32api
+COM Interface
+ actxserver
+ com_atexit
+ com_delete
+ com_get
+ com_invoke
+ com_release
+ com_set
+ iscom
+Examples
+ mat2xls

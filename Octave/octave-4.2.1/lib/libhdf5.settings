@@ -1,0 +1,61 @@
+	    SUMMARY OF THE HDF5 CONFIGURATION
+	    =================================
+
+General Information:
+-------------------
+		   HDF5 Version: 1.8.14
+		  Configured on: Thu Feb 23 16:40:56 EST 2017
+		  Configured by: jwe@pagefault
+		 Configure mode: production
+		    Host system: x86_64-w64-mingw32
+	      Uname information: Linux pagefault 4.8.0-1-amd64 #1 SMP Debian 4.8.7-1 (2016-11-13) x86_64 GNU/Linux
+		       Byte sex: little-endian
+		      Libraries: shared
+	     Installation point: /scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32
+
+Compiling Options:
+------------------
+               Compilation Mode: production
+                     C Compiler: /scratch/jwe/mxe-octave/4.2.1/w64-32/usr/bin/x86_64-w64-mingw32-gcc
+                         CFLAGS: 
+                      H5_CFLAGS:  
+                      AM_CFLAGS: 
+                       CPPFLAGS: -I/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/include
+                    H5_CPPFLAGS:   -DNDEBUG -UH5_DEBUG_API
+                    AM_CPPFLAGS: 
+               Shared C Library: yes
+               Static C Library: no
+  Statically Linked Executables: no
+                        LDFLAGS: -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib
+                     H5_LDFLAGS: 
+                     AM_LDFLAGS:  -L/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/lib
+ 	 	Extra libraries:  -lz -lm -lws2_32
+ 		       Archiver: ar
+ 		 	 Ranlib: x86_64-w64-mingw32-ranlib
+ 	      Debugged Packages: 
+		    API Tracing: no
+
+Languages:
+----------
+                        Fortran: no
+
+                            C++: no
+
+Features:
+---------
+                  Parallel HDF5: no
+             High Level library: yes
+                   Threadsafety: no
+            Default API Mapping: v18
+ With Deprecated Public Symbols: yes
+         I/O filters (external): deflate(zlib)
+         I/O filters (internal): shuffle,fletcher32,nbit,scaleoffset
+                            MPE: no
+                     Direct VFD: no
+                        dmalloc: no
+Clear file buffers before write: yes
+           Using memory checker: no
+         Function Stack Tracing: no
+      Strict File Format Checks: no
+   Optimization Instrumentation: no
+       Large File Support (LFS): no

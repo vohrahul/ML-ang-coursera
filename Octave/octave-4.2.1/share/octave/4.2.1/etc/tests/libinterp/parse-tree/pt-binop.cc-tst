@@ -1,0 +1,11 @@
+## DO NOT EDIT!  Generated automatically from pt-binop.cc by Make.
+%!test
+%! x = 0;
+%! do_braindead_shortcircuit_evaluation (0);
+%! if (1 | (x = 1))
+%! endif
+%! assert (x, 1);
+%! do_braindead_shortcircuit_evaluation (1);
+%! if (1 | (x = 0))
+%! endif
+%! assert (x, 1);

@@ -1,0 +1,11 @@
+Name: Geometry
+Version: 2.1.1
+Date: 2016-03-24
+Author: Juan Pablo Carbajal <ajuanpi+dev@gmail.com>, Simeon Simeonov <sss41@cam.ac.uk>, David Legland <david.legland@grignon.inra.fr>,
+Maintainer: Juan Pablo Carbajal <ajuanpi+dev@gmail.com>
+Title: Computational Geometry
+Description: Library for geometric computing extending MatGeom functions. Useful to create, transform, manipulate and display geometric primitives.
+Depends: octave (>= 4.0.0)
+Autoload: no
+License: GPLv3+, FreeBSD
+Url: http://octave.sf.net, https://github.com/dlegland/matGeom

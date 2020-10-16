@@ -1,0 +1,13 @@
+Name: financial
+Version: 0.5.0
+Date: 2016-01-31
+Author: Bill Denney <bill@denney.ws>, Kurt Hornik <Kurt.Hornik@wu-wien.ac.at>
+Maintainer: Parsiad Azimzadeh <parsiad.azimzadeh@gmail.com>
+Title: Financial
+Description: Monte Carlo simulation, options pricing routines,
+ financial manipulation, plotting functions and additional date manipulation
+ tools.
+Depends: octave (>= 4.0.0), io (>= 1.0.18)
+Autoload: no
+License: GPLv3+
+Url: http://octave.sf.net

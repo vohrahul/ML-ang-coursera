@@ -1,0 +1,17 @@
+Summary of important user-visible changes for dataframe 1.1:
+-------------------------------------------------------------------
+
+ ** dataframe 1.1.0 is a major update. As it introduces new functions, if 
+    dataframe-1.0.1 was previously loaded, Octave has to be restarted.
+    Significants changes:
+    - the structure of "row empty", i.e. dataframes with [0, n] size,
+      is fully displayed
+    - the "_src" metadata is now correctly set
+    - new function: nth_element, make it compatible with median. Note 
+      that only row-median and page median are implemented, using directly
+      the underlying data structures
+    - new function; numel. Only the one argument form is supported.
+    - bsxfun now better handles array as first arguement
+    - vector vs matrix plot are now supported, provided both data set possess
+      the same colum length. 
+

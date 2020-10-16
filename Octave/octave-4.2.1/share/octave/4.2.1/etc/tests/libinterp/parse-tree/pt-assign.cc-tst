@@ -1,0 +1,11 @@
+## DO NOT EDIT!  Generated automatically from pt-assign.cc by Make.
+%!function varargout = f ()
+%!  varargout{1} = nargout;
+%!endfunction
+%!
+%!test
+%! [a, ~] = f ();
+%! assert (a, 2);
+%!test
+%! [a, ~, ~, ~, ~] = f ();
+%! assert (a, 5);

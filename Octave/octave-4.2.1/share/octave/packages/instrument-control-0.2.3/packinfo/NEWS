@@ -1,0 +1,138 @@
+Summary of important user-visible changes for instrument-control 0.2.3:
+-------------------------------------------------------------------
+
+  ** New function:
+        instrhwinfo
+
+  ** GPIB: Fix EOI handling
+
+  ** SERIAL: Fix display of bytesize setting
+  
+  ** SERIAL: Win32: Fix srl_read
+  
+  ** TCP: Fix infinite loop on connection lost
+
+
+Summary of important user-visible changes for instrument-control 0.2.2:
+-------------------------------------------------------------------
+
+  ** GPIB: new function:
+        fread
+
+  ** SERIAL: Add pinstatus property
+  
+  ** SERIAL: Change display for serial object
+  
+  ** SERIAL: Fix MACOS compilation error
+
+  ** Fix warnings when using Octave 4.0
+
+
+Summary of important user-visible changes for instrument-control 0.2.1:
+-------------------------------------------------------------------
+
+  ** GPIB: New functions:
+        spoll
+        trigger
+        clrdevice
+        fopen
+        fclose
+        fwrite
+        fprintf
+        fscanf
+
+  ** I2C, TCPIP, USBTMC, VXI11: New functions:
+        fopen
+        fclose
+
+  ** SERIAL: Add Win32 support
+
+  ** SERIAL: New functions:
+        fclose
+        fopen
+        get
+        set
+
+  ** SERIAL: Deprecate functions, use set and get instead:
+        srl_baudrate
+        srl_bytesize
+        srl_close
+        srl_flush
+        srl_parity
+        srl_stopbits
+        srl_timeout
+
+
+Summary of important user-visible changes for instrument-control 0.2.0:
+-------------------------------------------------------------------
+
+ ** Support for TCP interface I/O
+
+ ** Support for USBTMC interface I/O
+
+ ** Support for GPIB interface I/O
+
+ ** Support for VXI11 interface I/O
+
+ ** The following functions are new:
+        tcp
+        tcp_read
+        tcp_write
+        tcp_timeout
+        tcp_close
+        usbtmc
+        usbtmc_read
+        usbtmc_write
+        usbtmc_close
+        gpib
+        gpib_read
+        gpib_write
+        gpib_timeout
+        gpib_close
+        vxi11
+        vxi11_read
+        vxi11_write
+        vxi11_close
+
+ ** Interfaces are now compiled seperately (i.e. failed compilation of one
+    interface does not mean fail of whole package)
+
+ ** Parallel and i2c interface support for FreeBSD platform
+
+ ** i2c_write no longer accepts strings for data parameter
+
+
+Summary of important user-visible changes for instrument-control 0.1.0:
+-------------------------------------------------------------------
+
+ ** Initial release
+
+ ** Support for Parallel interface I/O
+
+ ** Support for Serial interface I/O
+
+ ** Support for i2c interface I/O
+
+ ** The following functions are new:
+        serial
+        srl_close
+        srl_read
+        srl_write
+        srl_baudrate
+        srl_flush
+        srl_stopbits
+        srl_bytesize
+        srl_parity
+        srl_timeout
+        i2c
+        i2c_addr
+        i2c_read
+        i2c_close
+        i2c_write
+        parallel
+        pp_ctrl
+        pp_stat
+        pp_close
+        pp_data
+        pp_datadir
+

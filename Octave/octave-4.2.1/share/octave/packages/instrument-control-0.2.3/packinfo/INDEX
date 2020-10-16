@@ -1,0 +1,70 @@
+instrument-control >> Low level I/O functions
+Serial
+  serial
+  @octave_serial/fopen
+  @octave_serial/fclose
+  @octave_serial/get
+  @octave_serial/set
+  srl_read
+  srl_write
+  @octave_serial/srl_baudrate
+  @octave_serial/srl_bytesize
+  @octave_serial/srl_flush
+  @octave_serial/srl_parity
+  @octave_serial/srl_stopbits
+  @octave_serial/srl_timeout
+  @octave_serial/srl_close
+I2C
+  i2c
+  @octave_i2c/fopen
+  @octave_i2c/fclose
+  i2c_addr
+  i2c_read
+  i2c_write
+  i2c_close
+Parallel
+  parallel
+  pp_datadir
+  pp_data
+  pp_ctrl
+  pp_stat
+  pp_close
+TCP
+  tcp
+  @octave_tcpip/fopen
+  @octave_tcpip/fclose
+  tcp_read
+  tcp_write
+  tcp_timeout
+  tcp_close
+USBTMC
+  usbtmc
+  @octave_usbtmc/fopen
+  @octave_usbtmc/fclose
+  usbtmc_read
+  usbtmc_write
+  usbtmc_close
+GPIB
+  gpib
+  gpib_read
+  gpib_write
+  gpib_timeout
+  gpib_close
+  @octave_gpib/fopen
+  @octave_gpib/fclose
+  @octave_gpib/fread
+  @octave_gpib/fwrite
+  @octave_gpib/fprintf
+  @octave_gpib/fscanf
+  spoll
+  trigger
+  clrdevice
+VXI11
+  vxi11
+  @octave_vxi11/fopen
+  @octave_vxi11/fclose
+  vxi11_read
+  vxi11_write
+  vxi11_close
+General
+  instrhwinfo

@@ -1,0 +1,21 @@
+## DO NOT EDIT!  Generated automatically from sysdep.cc by Make.
+%!assert (ischar (getenv ("OCTAVE_HOME")))
+%!test
+%! setenv ("dummy_variable_that_cannot_matter", "foobar");
+%! assert (getenv ("dummy_variable_that_cannot_matter"), "foobar");
+%! unsetenv ("dummy_variable_that_cannot_matter");
+%! assert (getenv ("dummy_variable_that_cannot_matter"), "");
+%!test
+%! pause (1);
+%!error (pause (1, 2))
+%!assert (islogical (isieee ()))
+%!assert (ischar (native_float_format ()))
+%!test
+%! home = get_home_directory ();
+%! assert (tilde_expand ("~/foobar"), [home "/foobar"]);
+%! assert (tilde_expand ("/foo/bar"), "/foo/bar");
+%! assert (tilde_expand ("foo/bar"), "foo/bar");
+%!test
+%! if (! ispc ())
+%!   assert (get_home_directory (), getenv ("HOME"));
+%! endif

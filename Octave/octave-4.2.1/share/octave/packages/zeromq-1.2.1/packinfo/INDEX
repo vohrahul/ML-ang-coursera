@@ -1,0 +1,42 @@
+zeromq >> Octave ZeroMQ bindings
+ZeroMQ overview
+  zeromq
+ZeroMQ functions
+  zmq_bind
+  zmq_close
+  zmq_connect
+  zmq_disconnect
+  zmq_errno
+  zmq_getsockopt
+  zmq_poll
+  zmq_recv
+  zmq_send
+  zmq_setsockopt
+  zmq_socket
+  zmq_strerror
+  zmq_unbind
+  zmq_version
+ZeroMQ socket type constants
+  ZMQ_DEALER
+  ZMQ_PAIR
+  ZMQ_PUB
+  ZMQ_PULL
+  ZMQ_PUSH
+  ZMQ_REP
+  ZMQ_REQ
+  ZMQ_ROUTER
+  ZMQ_SUB
+ZeroMQ get/setsockopt constants
+  ZMQ_EVENTS
+  ZMQ_SUBSCRIBE
+  ZMQ_UNSUBSCRIBE
+  ZMQ_RCVMORE
+  ZMQ_TYPE
+  ZMQ_IDENTITY
+ZeroMQ ZMQ_EVENTS flags
+  ZMQ_POLLIN
+  ZMQ_POLLOUT
+ZeroMQ recieve send options
+  ZMQ_DONTWAIT
+  ZMQ_SNDMORE
+

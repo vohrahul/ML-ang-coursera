@@ -1,0 +1,569 @@
+## DO NOT EDIT!  Generated automatically from graphics.cc by Make.
+%!test
+%! hf = figure ("visible", "off");
+%! h = plot (1:10, 10:-1:1);
+%! set (h, "linewidth", 10, "marker", "x");
+%! lw = get (h, "linewidth");
+%! mk = get (h, "marker");
+%! close (hf);
+%! assert (lw, 10);
+%! assert (mk, "x");
+%!test
+%! hf = figure ("visible", "off");
+%! h = plot (1:10, 10:-1:1);
+%! set (h, {"linewidth", "marker"}, {10, "x"});
+%! lw = get (h, "linewidth");
+%! mk = get (h, "marker");
+%! close (hf);
+%! assert (lw, 10);
+%! assert (mk, "x");
+%!test
+%! hf = figure ("visible", "off");
+%! unwind_protect
+%!   h = plot (1:10, 10:-1:1, 1:10, 1:10);
+%!   set (h, {"linewidth", "marker"}, {10, "x"; 5, "o"});
+%!   assert (get (h, "linewidth"), {10; 5});
+%!   assert (get (h, "marker"), {"x"; "o"});
+%!   set (h, {"linewidth", "marker"}, {10, "x"});
+%!   assert (get (h, "linewidth"), {10; 10});
+%!   assert (get (h, "marker"), {"x"; "x"});
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect;
+%!error <set: number of graphics handles must match number of value rows>
+%! hf = figure ("visible", "off");
+%! unwind_protect
+%!   h = plot (1:10, 10:-1:1, 1:10, 1:10);
+%!   set (h, {"linewidth", "marker"}, {10, "x"; 5, "o"; 7, "."});
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!error <set: number of names must match number of value columns>
+%! hf = figure ("visible", "off");
+%! unwind_protect
+%!   h = plot (1:10, 10:-1:1, 1:10, 1:10);
+%!   set (h, {"linewidth"}, {10, "x"; 5, "o"});
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!test
+%! hf = figure ("visible", "off");
+%! set (gca (), "xticklabel", [0, 0.2, 0.4, 0.6, 0.8, 1]);
+%! xticklabel = get (gca (), "xticklabel");
+%! close (hf);
+%! assert (class (xticklabel), "char");
+%! assert (size (xticklabel), [6, 3]);
+%!test
+%! hf = figure ("visible", "off");
+%! set (gca (), "xticklabel", "0|0.2|0.4|0.6|0.8|1");
+%! xticklabel = get (gca (), "xticklabel");
+%! close (hf);
+%! assert (class (xticklabel), "char");
+%! assert (size (xticklabel), [6, 3]);
+%!test
+%! hf = figure ("visible", "off");
+%! set (gca (), "xticklabel", ["0 "; "0.2"; "0.4"; "0.6"; "0.8"; "1 "]);
+%! xticklabel = get (gca (), "xticklabel");
+%! close (hf);
+%! assert (class (xticklabel), "char");
+%! assert (size (xticklabel), [6, 3]);
+%!test
+%! hf = figure ("visible", "off");
+%! set (gca (), "xticklabel", {"0", "0.2", "0.4", "0.6", "0.8", "1"});
+%! xticklabel = get (gca (), "xticklabel");
+%! close (hf);
+%! assert (class (xticklabel), "cell");
+%! assert (size (xticklabel), [6, 1]);
+%!test
+%! hf = figure ("visible", "off");
+%! unwind_protect
+%!   h = plot (1:10, 10:-1:1);
+%!   set (h, struct ("linewidth", 10, "marker", "x"));
+%!   assert (get (h, "linewidth"), 10);
+%!   assert (get (h, "marker"), "x");
+%!   h = plot (1:10, 10:-1:1, 1:10, 1:10);
+%!   set (h, struct ("linewidth", {5, 10}));
+%!   assert (get (h, "linewidth"), {10; 10});
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!test
+%! markchanged = @(h, foobar, name) set (h, "userdata", [get(h,"userdata"); {name}]);
+%! hf = figure ("visible", "off");
+%! unwind_protect
+%!   h = line ();
+%!   set (h, "userdata", {});
+%!   addlistener (h, "color", {markchanged, "color"});
+%!   addlistener (h, "linewidth", {markchanged, "linewidth"});
+%!   ## "linewidth" first
+%!   props.linewidth = 2;
+%!   props.color = "r";
+%!   set (h, props);
+%!   assert (get (h, "userdata"), fieldnames (props));
+%!   clear props;
+%!   clf ();
+%!   h = line ();
+%!   set (h, "userdata", {});
+%!   addlistener (h, "color", {markchanged, "color"});
+%!   addlistener (h, "linewidth", {markchanged, "linewidth"});
+%!   ## "color" first
+%!   props.color = "r";
+%!   props.linewidth = 2;
+%!   set (h, props);
+%!   assert (get (h, "userdata"), fieldnames (props));
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!test
+%! old_lw = get (0, "defaultlinelinewidth");
+%! unwind_protect
+%!   hf = figure ("visible", "off");
+%!   h = plot (1:10, 10:-1:1);
+%!   set (0, "defaultlinelinewidth", 20);
+%!   set (h, "linewidth", "default");
+%!   assert (get (h, "linewidth"), 20);
+%!   set (h, "linewidth", "factory");
+%!   assert (get (h, "linewidth"), 0.5);
+%! unwind_protect_cleanup
+%!   close (hf);
+%!   set (0, "defaultlinelinewidth", old_lw);
+%! end_unwind_protect
+%!test
+%! set(0, "defaultfigureunits", "normalized");
+%! set(0, "defaultfigureposition", [0.7 0 0.3 0.3]);
+%! hf = figure ("visible", "off");
+%! tol = 20 * eps;
+%! unwind_protect
+%!   assert (get (hf, "position"), [0.7 0 0.3 0.3], tol);
+%! unwind_protect_cleanup
+%!   close (hf);
+%!   set(0, "defaultfigureunits", "remove");
+%!   set(0, "defaultfigureposition", "remove");
+%! end_unwind_protect
+%!test
+%! hf = figure ("visible", "off");
+%! unwind_protect
+%!   hax = gca ();
+%!   set (hax, "parent", gcf ());
+%!   assert (gca (), hax);
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!test
+%! hfig = figure ("visible", "off");
+%! unwind_protect
+%!   hax = axes ();
+%!   ret = set (hax, "tightinset");
+%!   assert (isempty (ret));
+%!   ret = set (hax, "type");
+%!   assert (isempty (ret));
+%!   ret = set (hfig, "tag");
+%!   assert (isempty (ret));
+%!   ret = set (0, "commandwindowsize");
+%!   assert (isempty (ret));
+%!   ret = set (0);
+%!   assert (! isfield (ret, "commandwindowsize"));
+%! unwind_protect_cleanup
+%!   close (hfig);
+%! end_unwind_protect
+%!test
+%! old_units = get (0, "units");
+%! unwind_protect
+%!   set (0, "units", "pixels");
+%!   sz = get (0, "screensize") - [1, 1, 0, 0];
+%!   dpi = get (0, "screenpixelsperinch");
+%!   set (0, "units", "inches");
+%!   assert (get (0, "screensize"), sz / dpi, 0.5 / dpi);
+%!   set (0, "units", "centimeters");
+%!   assert (get (0, "screensize"), sz / dpi * 2.54, 0.5 / dpi * 2.54);
+%!   set (0, "units", "points");
+%!   assert (get (0, "screensize"), sz / dpi * 72, 0.5 / dpi * 72);
+%!   set (0, "units", "normalized");
+%!   assert (get (0, "screensize"), [0.0, 0.0, 1.0, 1.0]);
+%!   set (0, "units", "pixels");
+%!   assert (get (0, "screensize"), sz + [1, 1, 0, 0]);
+%! unwind_protect_cleanup
+%!   set (0, "units", old_units);
+%! end_unwind_protect
+%!test
+%! hf1 = figure ("visible", "off");
+%! ax1 = subplot (1,2,1);
+%! ax2 = subplot (1,2,2);
+%! hf2 = figure ("visible", "off");
+%! unwind_protect
+%!   set (ax2, "parent", hf2);
+%!   assert (get (hf2, "currentaxes"), ax2);
+%!   assert (get (hf1, "currentaxes"), ax1);
+%!   set (ax1, "parent", hf2);
+%!   assert (get (hf2, "currentaxes"), ax2);
+%! unwind_protect_cleanup
+%!   close (hf1);
+%!   close (hf2);
+%! end_unwind_protect
+%!test
+%! hf = figure ("visible", "off", "paperpositionmode", "auto");
+%! in_pos = [0 0 4 5];
+%! tol = 20 * eps ();
+%! unwind_protect
+%!   ## paperpositionmode "auto" converts figure size to paper units
+%!   set (hf, "units", "inches");
+%!   set (hf, "position", in_pos);
+%!   set (hf, "paperunits", "centimeters");
+%!   psz = get (hf, "papersize");
+%!   fsz = in_pos(3:4) * 2.54;
+%!   pos = [(psz/2 .- fsz/2) fsz];
+%!   set (hf, "paperpositionmode", "auto");
+%!   assert (get (hf, "paperposition"), pos, tol);
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!test
+%! hf = figure ("visible", "off", "paperpositionmode", "auto");
+%! in_pos = [0 0 4 5];
+%! tol = 20 * eps ();
+%! unwind_protect
+%!   ## likewise with normalized units
+%!   set (hf, "units", "inches");
+%!   set (hf, "position", in_pos);
+%!   psz = get (hf, "papersize");
+%!   set (hf, "paperunits", "normalized");
+%!   fsz = in_pos(3:4) ./ psz;
+%!   pos = [([0.5 0.5] .- fsz/2) fsz];
+%!   assert (get (hf, "paperposition"), pos, tol);
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!test
+%! hf = figure ("visible", "off", "paperpositionmode", "auto");
+%! in_pos = [0 0 4 5];
+%! tol = 20 * eps ();
+%! unwind_protect
+%!   ## changing papertype updates paperposition
+%!   set (hf, "units", "inches");
+%!   set (hf, "position", in_pos);
+%!   set  (hf, "papertype", "a4");
+%!   psz = get (hf, "papersize");
+%!   fsz = in_pos(3:4);
+%!   pos = [(psz/2 .- fsz/2) fsz];
+%!   assert (get (hf, "paperposition"), pos, tol);
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!test
+%! hf = figure ("visible", "off", "paperpositionmode", "auto");
+%! in_pos = [0 0 4 5];
+%! tol = 20 * eps ();
+%! unwind_protect
+%!   ## lanscape updates paperposition
+%!   set (hf, "units", "inches");
+%!   set (hf, "position", in_pos);
+%!   set (hf, "paperorientation", "landscape");
+%!   psz = get (hf, "papersize");
+%!   fsz = in_pos(3:4);
+%!   pos = [(psz/2 .- fsz/2) fsz];
+%!   assert (get (hf, "paperposition"), pos, tol);
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!test
+%! hf = figure ("visible", "off", "paperpositionmode", "auto");
+%! in_pos = [0 0 4 5];
+%! unwind_protect
+%!   ## back to manual mode
+%!   set (hf, "paperposition", in_pos * 1.1);
+%!   assert (get (hf, "paperpositionmode"), "manual");
+%!   assert (get (hf, "paperposition"), in_pos * 1.1);
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!test
+%! hf = figure ("visible", "off");
+%! unwind_protect
+%!   set (hf, "paperunits", "inches");
+%!   set (hf, "papersize", [5, 4]);
+%!   set (hf, "paperunits", "points");
+%!   assert (get (hf, "papersize"), [5, 4] * 72, 1);
+%!   papersize = get (hf, "papersize");
+%!   set (hf, "papersize", papersize + 1);
+%!   set (hf, "papersize", papersize);
+%!   assert (get (hf, "papersize"), [5, 4] * 72, 1);
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!test
+%! hf = figure ("visible", "off");
+%! unwind_protect
+%!   set (hf, "paperunits", "inches");
+%!   set (hf, "papersize", [5, 4]);
+%!   set (hf, "paperunits", "centimeters");
+%!   assert (get (hf, "papersize"), [5, 4] * 2.54, 2.54/72);
+%!   papersize = get (hf, "papersize");
+%!   set (hf, "papersize", papersize + 1);
+%!   set (hf, "papersize", papersize);
+%!   assert (get (hf, "papersize"), [5, 4] * 2.54, 2.54/72);
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!test
+%! hf = figure ("visible", "off");
+%! unwind_protect
+%!   tol = 100 * eps ();
+%!   ## UPPER case and MiXed case is part of test and should not be changed.
+%!   set (hf, "paperorientation", "PORTRAIT");
+%!   set (hf, "paperunits", "inches");
+%!   set (hf, "papertype", "USletter");
+%!   assert (get (hf, "papersize"), [8.5, 11.0], tol);
+%!   set (hf, "paperorientation", "Landscape");
+%!   assert (get (hf, "papersize"), [11.0, 8.5], tol);
+%!   set (hf, "paperunits", "centimeters");
+%!   assert (get (hf, "papersize"), [11.0, 8.5] * 2.54, tol);
+%!   set (hf, "papertype", "a4");
+%!   assert (get (hf, "papersize"), [29.7, 21.0], tol);
+%!   set (hf, "paperunits", "inches", "papersize", [8.5, 11.0]);
+%!   assert (get (hf, "papertype"), "usletter");
+%!   assert (get (hf, "paperorientation"), "portrait");
+%!   set (hf, "papersize", [11.0, 8.5]);
+%!   assert (get (hf, "papertype"), "usletter");
+%!   assert (get (hf, "paperorientation"), "landscape");
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!test
+%! hf = figure ("visible", "off");
+%! old_units = get (0, "units");
+%! unwind_protect
+%!   set (0, "units", "pixels");
+%!   rsz = get (0, "screensize");
+%!   set (gcf (), "units", "pixels");
+%!   fsz = get (gcf (), "position");
+%!   set (gcf (), "units", "normalized");
+%!   pos = get (gcf (), "position");
+%!   assert (pos, (fsz - [1, 1, 0, 0]) ./ rsz([3, 4, 3, 4]));
+%! unwind_protect_cleanup
+%!   close (hf);
+%!   set (0, "units", old_units);
+%! end_unwind_protect
+%!testif HAVE_OPENGL, HAVE_FLTK
+%! if (! have_window_system)
+%!  return;
+%! endif
+%! hf = figure ("visible", "off");
+%! graphics_toolkit (hf, "fltk");
+%! unwind_protect
+%!   subplot(2,1,1); plot(rand(10,1)); subplot(2,1,2); plot(rand(10,1));
+%!   hax = findall (gcf (), "type", "axes");
+%!   positions = cell2mat (get (hax, "position"));
+%!   outerpositions = cell2mat (get (hax, "outerposition"));
+%!   looseinsets = cell2mat (get (hax, "looseinset"));
+%!   tightinsets = cell2mat (get (hax, "tightinset"));
+%!   subplot(2,1,1); plot(rand(10,1)); subplot(2,1,2); plot(rand(10,1));
+%!   hax = findall (gcf (), "type", "axes");
+%!   assert (cell2mat (get (hax, "position")), positions, 1e-4);
+%!   assert (cell2mat (get (hax, "outerposition")), outerpositions, 1e-4);
+%!   assert (cell2mat (get (hax, "looseinset")), looseinsets, 1e-4);
+%!   assert (cell2mat (get (hax, "tightinset")), tightinsets, 1e-4);
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!testif HAVE_OPENGL, HAVE_FLTK
+%! if (! have_window_system)
+%!  return;
+%! endif
+%! hf = figure ("visible", "off");
+%! graphics_toolkit (hf, "fltk");
+%! fpos = get (hf, "position");
+%! unwind_protect
+%!   plot (rand (3));
+%!   position = get (gca, "position");
+%!   outerposition = get (gca, "outerposition");
+%!   looseinset = get (gca, "looseinset");
+%!   tightinset = get (gca, "tightinset");
+%!   set (hf, "position", [fpos(1:2), 2*fpos(3:4)]);
+%!   set (hf, "position", fpos);
+%!   assert (get (gca, "outerposition"), outerposition, 0.001);
+%!   assert (get (gca, "position"), position, 0.001);
+%!   assert (get (gca, "looseinset"), looseinset, 0.001);
+%!   assert (get (gca, "tightinset"), tightinset, 0.001);
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!testif HAVE_OPENGL, HAVE_FLTK
+%! if (! have_window_system)
+%!  return;
+%! endif
+%! hf = figure ("visible", "off");
+%! graphics_toolkit (hf, "fltk");
+%! fpos = get (hf, "position");
+%! set (gca, "activepositionproperty", "position");
+%! unwind_protect
+%!   plot (rand (3));
+%!   position = get (gca, "position");
+%!   outerposition = get (gca, "outerposition");
+%!   looseinset = get (gca, "looseinset");
+%!   tightinset = get (gca, "tightinset");
+%!   set (hf, "position", [fpos(1:2), 2*fpos(3:4)]);
+%!   set (hf, "position", fpos);
+%!   assert (get (gca, "position"), position, 0.001);
+%!   assert (get (gca, "outerposition"), outerposition, 0.001);
+%!   assert (get (gca, "looseinset"), looseinset, 0.001);
+%!   assert (get (gca, "tightinset"), tightinset, 0.001);
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!demo
+%! clf;
+%! subplot (2,1,1);
+%!  plot (rand (3));
+%!  xlabel xlabel;
+%!  ylabel ylabel;
+%!  title title;
+%! subplot (2,1,2);
+%!  plot (rand (3));
+%!  set (gca, "ticklength", get (gca, "ticklength") * 2, "tickdir", "out");
+%!  xlabel xlabel;
+%!  ylabel ylabel;
+%!  title title;
+%!test <45356>
+%! hf = figure ("visible", "off");
+%! unwind_protect
+%!   plot (1:10);
+%!   xlim ([4.75, 8.5]);
+%!   tics = get (gca, "xtick");
+%!   assert (tics, [5 6 7 8]);
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!test
+%! hf = figure ("visible", "off");
+%! hax = axes ("parent", hf);
+%! unwind_protect
+%!   hctx1 = uicontextmenu ("parent", hf);
+%!   hctx2 = uicontextmenu ("parent", hf);
+%!   set (hf, "uicontextmenu", hctx2);
+%!   set (hax, "uicontextmenu", hctx2);
+%!   assert (get (hf, "uicontextmenu"), hctx2);
+%!   assert (get (hax, "uicontextmenu"), hctx2);
+%!   assert (get (hf, "children"), [hctx2; hctx1; hax]);
+%!   delete (hctx2);
+%!   assert (get (hf, "uicontextmenu"), []);
+%!   assert (get (hax, "uicontextmenu"), []);
+%!   assert (get (hf, "children"), [hctx1; hax]);
+%!   set (hf, "uicontextmenu", hctx1);
+%!   assert (get (hf, "uicontextmenu"), hctx1);
+%!   set (hf, "uicontextmenu", []);
+%!   assert (get (hf, "uicontextmenu"), []);
+%!   assert (get (hf, "children"), [hctx1; hax]);
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect;
+%!test  # line object
+%! hf = figure ("visible", "off");
+%! unwind_protect
+%!   tol = 20 * eps;
+%!   hax = axes ("defaultlinelinewidth", 3);
+%!
+%!   hli = line (1:10, 1:10, 1:10, "marker", "o",
+%!               "markerfacecolor", "b", "linestyle", ":");
+%!
+%!   reset (hli);
+%!   assert (get (hli, "marker"), get (0, "defaultlinemarker"));
+%!   assert (get (hli, "markerfacecolor"),
+%!           get (0, "defaultlinemarkerfacecolor"));
+%!   assert (get (hli, "linestyle"), get (0, "defaultlinelinestyle"));
+%!   assert (get (hli, "linewidth"), 3, tol);  # parent axes defaults
+%!
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!test  # patch object
+%! hf = figure ("visible", "off");
+%! unwind_protect
+%!   tol = 20 * eps;
+%!   t1 = (1/16:1/8:1)' * 2*pi;
+%!   t2 = ((1/16:1/16:1)' + 1/32) * 2*pi;
+%!   x1 = sin (t1) - 0.8;
+%!   y1 = cos (t1);
+%!   x2 = sin (t2) + 0.8;
+%!   y2 = cos (t2);
+%!   vert = [x1, y1; x2, y2];
+%!   fac = [1:8,NaN(1,8);9:24];
+%!   hpa = patch ("Faces",fac, "Vertices",vert, "FaceColor","r");
+%!
+%!   reset (hpa);
+%!   assert (get (hpa, "faces"), get (0, "defaultpatchfaces"), tol);
+%!   assert (get (hpa, "vertices"), get (0, "defaultpatchvertices"), tol);
+%!   assert (get (hpa, "facevertexcdata"),
+%!           get (0, "defaultpatchfacevertexcdata"), tol);
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!test  # surface object
+%! hf = figure ("visible", "off");
+%! unwind_protect
+%!   tol = 20 * eps;
+%!   hsu = surface (peaks, "edgecolor", "none");
+%!
+%!   reset (hsu);
+%!   assert (get (hsu, "xdata"), get (0, "defaultsurfacexdata"), tol);
+%!   assert (get (hsu, "ydata"), get (0, "defaultsurfaceydata"), tol);
+%!   assert (get (hsu, "zdata"), get (0, "defaultsurfacezdata"), tol);
+%!   assert (get (hsu, "edgecolor"), get (0, "defaultsurfaceedgecolor"), tol);
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!test  # image object
+%! hf = figure ("visible", "off");
+%! unwind_protect
+%!   tol = 20 * eps;
+%!   him = image (rand (10,10), "cdatamapping", "scaled");
+%!
+%!   reset (him);
+%!   assert (get (him, "cdata"), get (0, "defaultimagecdata"), tol);
+%!   assert (get (him, "cdatamapping"),
+%!           get (0, "defaultimagecdatamapping"), tol);
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!test  # text object
+%! hf = figure ("visible", "off");
+%! unwind_protect
+%!   tol = 20 * eps;
+%!   hte = text (5, 5, "Hi!", "fontsize", 20 ,"color", "r");
+%!
+%!   reset (hte);
+%!   assert (get (hte, "position"), get (0, "defaulttextposition"), tol);
+%!   assert (get (hte, "fontsize"), get (0, "defaulttextfontsize"), tol);
+%!   assert (get (hte, "color"), get (0, "defaulttextcolor"), tol);
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!test  # axes object
+%! hf = figure ("visible", "off");
+%! unwind_protect
+%!   tol = 20 * eps;
+%!   pos = get (0, "defaultaxesposition") * .5;
+%!   hax = axes ("linewidth", 2, "position", pos);
+%!   title ("Reset me, please!");
+%!
+%!   reset (hax);
+%!   assert (get (hax, "linewidth"), get (0, "defaultaxeslinewidth"), tol);
+%!   assert (get (hax, "position"), pos, tol);  # axes position is unchanged
+%!   assert (get (hax, "default"), struct ());  # no more axes' defaults
+%!   assert (get (get (hax, "title"), "string"), "");
+%! unwind_protect_cleanup
+%!   close (hf);
+%! end_unwind_protect
+%!test  # root figure object
+%! set (0, "defaultfigurevisible", "off");
+%! hf = figure ("visible", "off", "paperunits", "centimeters",
+%!              "papertype", "a4");
+%! unwind_protect
+%!   reset (hf);
+%!   assert (get (hf, "papertype"), get (0, "defaultfigurepapertype"));
+%!   assert (get (hf, "paperunits"), "centimeters");  # paperunits is unchanged
+%!   assert (get (hf, "visible"), get (0, "defaultfigurevisible"));
+%! unwind_protect_cleanup
+%!   close (hf);
+%!   set (0, "defaultfigurevisible", "remove");
+%! end_unwind_protect
+%!assert (get (findobj (0, "Tag", "nonexistenttag"), "nonexistentproperty"), [])

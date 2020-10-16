@@ -1,0 +1,104 @@
+## DO NOT EDIT!  Generated automatically from strfns.cc by Make.
+%!assert (char (), '')
+%!assert (char (100), "d")
+%!assert (char (100,100), ["d";"d"])
+%!assert (char ({100,100}), ["d";"d"])
+%!assert (char ([100,100]), ["dd"])
+%!assert (char ({100,{100}}), ["d";"d"])
+%!assert (char (100, [], 100), ["d";" ";"d"])
+%!assert (char ({100, [], 100}), ["d";" ";"d"])
+%!assert (char ({100,{100, {""}}}), ["d";"d";" "])
+%!assert (char (["a";"be"], {"c", 100}), ["a";"be";"c";"d"])
+%!assert (char ("a", "bb", "ccc"), ["a  "; "bb "; "ccc"])
+%!assert (char ([65, 83, 67, 73, 73]), "ASCII")
+%!test
+%! x = char ("foo", "bar", "foobar");
+%! assert (x(1,:), "foo   ");
+%! assert (x(2,:), "bar   ");
+%! assert (x(3,:), "foobar");
+%!assert (strvcat (""), "")
+%!assert (strvcat (100) == "d")
+%!assert (strvcat (100,100), ["d";"d"])
+%!assert (strvcat ({100,100}), ["d";"d"])
+%!assert (strvcat ([100,100]), ["dd"])
+%!assert (strvcat ({100,{100}}), ["d";"d"])
+%!assert (strvcat (100, [], 100), ["d";"d"])
+%!assert (strvcat ({100, [], 100}), ["d";"d"])
+%!assert (strvcat ({100,{100, {""}}}), ["d";"d"])
+%!assert (strvcat (["a";"be"], {"c", 100}), ["a";"be";"c";"d"])
+%!assert (strvcat ("a", "bb", "ccc"), ["a  "; "bb "; "ccc"])
+%!assert (strvcat (), "")
+%!assert (ischar ("a"), true)
+%!assert (ischar (["ab";"cd"]), true)
+%!assert (ischar ({"ab"}), false)
+%!assert (ischar (1), false)
+%!assert (ischar ([1, 2]), false)
+%!assert (ischar ([]), false)
+%!assert (ischar ([1, 2; 3, 4]), false)
+%!assert (ischar (""), true)
+%!assert (ischar ("test"), true)
+%!assert (ischar (["test"; "ing"]), true)
+%!assert (ischar (struct ("foo", "bar")), false)
+%!error ischar ()
+%!error ischar ("test", 1)
+%!shared x
+%! x = char (zeros (0, 2));
+%!assert (strcmp ("", x), false)
+%!assert (strcmp (x, ""), false)
+%!assert (strcmp (x, x), true)
+%!assert (strcmp ({"foo"}, x), false)
+%!assert (strcmp ({"foo"}, "foo"), true)
+%!assert (strcmp ({"foo"}, x), false)
+%!assert (strcmp (x, {"foo"}), false)
+%!assert (strcmp ("foo", {"foo"}), true)
+%!assert (strcmp (x, {"foo"}), false)
+%!shared y
+%! y = char (zeros (2, 0));
+%!assert (strcmp ("", y), false)
+%!assert (strcmp (y, ""), false)
+%!assert (strcmp (y, y), true)
+%!assert (strcmp ({""}, y), [true; true])
+%!assert (strcmp ({y}, ""), true)
+%!assert (strcmp ({y}, y), [true; true])
+%!assert (strcmp ("", {y}), true)
+%!assert (strcmp (y, {""}), [true; true])
+%!assert (strcmp (y, {y}), [true; true])
+%!assert (strcmp ({y; y}, ""), [true; true])
+%!assert (strcmp ({y; y}, {""}), [true; true])
+%!assert (strcmp ("", {y; y}), [true; true])
+%!assert (strcmp ({""}, {y; y}), [true; true])
+%!assert (strcmp ({"foo"}, y), [false; false])
+%!assert (strcmp ({"foo"}, y), [false; false])
+%!assert (strcmp (y, {"foo"}), [false; false])
+%!assert (strcmp (y, {"foo"}), [false; false])
+%!assert (strcmp ("foobar", "foobar"), true)
+%!assert (strcmp ("fooba", "foobar"), false)
+%!error strcmp ()
+%!error strcmp ("foo", "bar", 3)
+%!assert (strncmp ("abce", "abc", 3), true)
+%!assert (strncmp (100, 100, 1), false)
+%!assert (strncmp ("abce", {"abcd", "bca", "abc"}, 3), logical ([1, 0, 1]))
+%!assert (strncmp ("abc",  {"abcd", "bca", "abc"}, 4), logical ([0, 0, 0]))
+%!assert (strncmp ({"abcd", "bca", "abc"},"abce", 3), logical ([1, 0, 1]))
+%!assert (strncmp ({"abcd", "bca", "abc"},{"abcd", "bca", "abe"}, 3), logical ([1, 1, 0]))
+%!assert (strncmp ("abc", {"abcd", 10}, 2), logical ([1, 0]))
+%!error strncmp ()
+%!error strncmp ("abc", "def")
+%!assert (strcmpi ("abc123", "ABC123"), true)
+%!assert (strncmpi ("abc123", "ABC456", 3), true)
+%!test
+%! input  = {"abc", "def", "ghijkl", "mnop", "qrs", "tuv"};
+%! result = "abc     mnop\ndef     qrs\nghijkl  tuv\n";
+%! assert (list_in_columns (input, 20), result);
+%!test
+%! input  = ["abc"; "def"; "ghijkl"; "mnop"; "qrs"; "tuv"];
+%! result = "abc     mnop  \ndef     qrs   \nghijkl  tuv   \n";
+%! assert (list_in_columns (input, 20), result);
+%!test
+%! input  = ["abc"; "def"; "ghijkl"; "mnop"; "qrs"; "tuv"];
+%! result = "  abc     mnop  \n  def     qrs   \n  ghijkl  tuv   \n";
+%! assert (list_in_columns (input, 20, "  "), result);
+%!error list_in_columns ()
+%!error list_in_columns (["abc", "def"], 20, 2)
+%!error list_in_columns (["abc", "def"], 20, "  ", 3)
+%!error <list_in_columns: WIDTH must be an integer> list_in_columns (["abc", "def"], "a")

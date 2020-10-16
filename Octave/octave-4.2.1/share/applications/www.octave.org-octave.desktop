@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=GNU Octave
+Comment=Scientific Computing using GNU Octave
+TryExec=/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/bin/octave
+Exec=/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32/bin/octave --force-gui %f
+Icon=octave
+Terminal=false
+Type=Application
+Categories=Education;Science;Math;
+StartupNotify=false
+StartupWMClass=octave-gui
+MimeType=text/x-octave;text/x-matlab;
+Keywords=science;math;matrix;numerical computation;plotting;
+X-Desktop-File-Install-Version=0.23

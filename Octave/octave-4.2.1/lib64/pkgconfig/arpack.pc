@@ -1,0 +1,10 @@
+prefix=/scratch/jwe/mxe-octave/4.2.1/w64-32/usr/x86_64-w64-mingw32
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+
+Name: ARPACK-NG
+Description: Collection of Fortran77 subroutines designed to solve large scale eigenvalue problems
+Version: 3.4.0
+URL: https://github.com/opencollab/arpack-ng/
+Libs: -L${libdir} -larpack
+Libs.private: -llapack -lblas

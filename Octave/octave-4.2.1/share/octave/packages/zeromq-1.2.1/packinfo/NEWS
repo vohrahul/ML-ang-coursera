@@ -1,0 +1,33 @@
+Summary of important user-visible changes for octave zeromq 1.2.1:
+-------------------------------------------------------------------
+
+  *** updated zmq_test for using pause and uint8 typecast for identity set
+
+Summary of important user-visible changes for octave zeromq 1.2.0:
+-------------------------------------------------------------------
+
+  *** added pub/sub example code
+
+  *** added new function zmq_disconnect
+
+  *** add ZMQ_EVENTS, ZMQ_POLLIN, ZMQ_POLLOUT to INDEX, update events documentation
+
+  *** added ZMQ_IDENTITY to get/setsockopts
+
+Summary of important user-visible changes for octave zeromq 1.1.0:
+-------------------------------------------------------------------
+
+  *** added new functions zmq_unbind, zmq_errno.
+
+  *** added getsockopt ZMQ_TYPE, ZMQ_EVENTS processing.
+
+  *** added help zeromq implementation
+
+  *** added new examples folder/files
+
+
+Summary of important user-visible changes for octave zeromq 1.0.0:
+-------------------------------------------------------------------
+
+  *** Initial release
+

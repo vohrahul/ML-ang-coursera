@@ -1,0 +1,25 @@
+dataframe >> Data manipulation toolbox similar to R data.frame
+Dataframe
+ @dataframe/bsxfun
+ @dataframe/cat
+ @dataframe/dataframe
+ @dataframe/display
+ @dataframe/end
+ @dataframe/fold
+ @dataframe/isempty
+ @dataframe/ldivide
+ @dataframe/minus
+ @dataframe/mldivide
+ @dataframe/mrdivide
+ @dataframe/mtimes
+ @dataframe/numel
+ @dataframe/nth_element
+ @dataframe/plus
+ @dataframe/rdivide
+ @dataframe/size
+ @dataframe/subsasgn
+ @dataframe/subsref
+ @dataframe/summary
+ @dataframe/times
+ @dataframe/uminus
+ @dataframe/uplus

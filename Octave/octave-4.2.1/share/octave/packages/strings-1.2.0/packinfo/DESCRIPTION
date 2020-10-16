@@ -1,0 +1,12 @@
+Name: strings
+Version: 1.2.0
+Date: 2015-06-06
+Author: various authors
+Maintainer: Oliver Heimlich <oheim@posteo.de>
+Title: String Handling.
+Description: Additional functions for manipulation and analysis of strings.
+Depends: octave (>= 3.8.0)
+Autoload: no
+BuildRequires: pcre-devel [Debian] libpcre3-dev
+License: GPLv3+, FreeBSD
+Url: http://octave.sourceforge.net/strings/

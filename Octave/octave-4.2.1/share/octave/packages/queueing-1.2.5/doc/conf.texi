@@ -1,0 +1,3 @@
+@set VERSION 1.2.5
+@set VERSIONDATE 2016-12-06
+@c @set top_srcdir  /home/carandraug/dev/octave-forge/super/queueing

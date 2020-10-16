@@ -1,0 +1,31 @@
+## DO NOT EDIT!  Generated automatically from symtab.cc by Make.
+%!shared old_state
+%! old_state = ignore_function_time_stamp ();
+%!test
+%! state = ignore_function_time_stamp ("all");
+%! assert (state, old_state);
+%! assert (ignore_function_time_stamp (), "all");
+%! state = ignore_function_time_stamp ("system");
+%! assert (state, "all");
+%! assert (ignore_function_time_stamp (), "system");
+%! ignore_function_time_stamp (old_state);
+%!error (ignore_function_time_stamp ("all", "all"))
+%!error (ignore_function_time_stamp ("UNKNOWN_VALUE"))
+%!error (ignore_function_time_stamp (42))
+%!assert <34497> (! strcmp (which ("bar"), ""))
+%!function x = bar ()
+%!  x = 5;
+%!endfunction
+%!test
+%! assert (bar == 5);
+%! assert (strcmp (which ("bar"), ""));
+%! clear -f bar;
+%! assert (! strcmp (which ("bar"), ""));
+%!function x = bar ()
+%!  x = 5;
+%!endfunction
+%!test
+%! assert (bar == 5);
+%! assert (strcmp (which ("bar"), ""));
+%! clear bar;
+%! assert (! strcmp (which ("bar"), ""));

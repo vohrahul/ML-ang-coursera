@@ -1,0 +1,21 @@
+/*
+This is part of the GNU Octave Interval Package Manual.
+Copyright 2015-2016 Oliver Heimlich.
+See the file manual.texinfo for copying conditions.
+*/
+
+/*
+Workaround for missing support of alpha lists and lists starting from zero in Texinfo's HTML output.
+FIXME: This should be fixed upstream.
+*/
+div.alpha-list + ol { list-style-type:lower-alpha; }
+div.zero-list + ol { counter-reset: item -1; }
+div.zero-list + ol > li { display:block; }
+div.zero-list + ol > li:before { content: counter(item) "."; counter-increment: item; display:inline-block; margin-left: -2.5em; min-width: 2em; margin-right: 0.2em; text-align: right; }
+
+/*
+Improve display of large graphics.
+FIXME: This should go into Octave's CSS file.
+*/
+div.float img { display: block; max-width: 42em; }
+object { max-width: 100% }

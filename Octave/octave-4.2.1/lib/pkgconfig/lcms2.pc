@@ -1,0 +1,12 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: lcms2
+Description: LCMS Color Management Library
+Version: 2.8
+Libs: -L${libdir} -llcms2
+Libs.private: -ljpeg -lm 
+Cflags: -I${includedir}
+Requires: libtiff-4

@@ -1,0 +1,34 @@
+## DO NOT EDIT!  Generated automatically from pr-output.cc by Make.
+%!assert (rats (2.0005, 9), "4001/2000")
+%!assert (rats (-2.0005, 10), "-4001/2000")
+%!assert (strtrim (rats (2.0005, 30)), "4001/2000")
+%!assert (pi - str2num (rats (pi, 30)), 0, 4 * eps)
+%!assert (e - str2num (rats (e, 30)), 0, 4 * eps)
+%!assert (rats (123, 2), " *")
+%!test
+%! v = 1 / double (intmax);
+%! err = v - str2num (rats(v, 12));
+%! assert (err, 0, 4 * eps);
+%!test
+%! format short
+%! fd = tmpfile ();
+%! for r = [0, Inf -Inf, NaN]
+%!   for i = [0, Inf -Inf, NaN]
+%!     fdisp (fd, complex (r, i));
+%!   endfor
+%! endfor
+%! fclose (fd);
+%!test
+%! foo.real = pi * ones (3,20,3);
+%! foo.complex = pi * ones (3,20,3) + 1i;
+%! foo.char = repmat ("- Hello World -", [3, 20]);
+%! foo.cell = {foo.real, foo.complex, foo.char};
+%! fields = fieldnames (foo);
+%! for f = 1:numel (fields)
+%!   format loose;
+%!   loose = disp (foo.(fields{f}));
+%!   format compact;
+%!   compact = disp (foo.(fields{f}));
+%!   expected = strrep (loose, "\n\n", "\n");
+%!   assert (expected, compact);
+%! endfor

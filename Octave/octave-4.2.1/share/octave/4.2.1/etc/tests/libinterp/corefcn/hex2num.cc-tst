@@ -1,0 +1,8 @@
+## DO NOT EDIT!  Generated automatically from hex2num.cc by Make.
+%!assert (hex2num (["c00";"bff";"000";"3ff";"400"]), [-2:2]')
+%!assert (hex2num (["c00";"bf8";"000";"3f8";"400"], "single"), single([-2:2])')
+%!assert (num2hex (-2:2), ["c000000000000000";"bff0000000000000";"0000000000000000";"3ff0000000000000";"4000000000000000"])
+%!assert (num2hex (single (-2:2)), ["c0000000";"bf800000";"00000000";"3f800000";"40000000"])
+%!error num2hex ()
+%!error num2hex (1,2)
+%!error num2hex (1j)

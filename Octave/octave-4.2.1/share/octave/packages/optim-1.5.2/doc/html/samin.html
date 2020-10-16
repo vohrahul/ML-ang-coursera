@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Additional documentation for the optim package for Octave.
+
+Copyright (C) Olaf Till <i7tiol@t-online.de>
+
+You can redistribute this documentation and/or modify it under the terms
+of the GNU General Public License as published by the Free Software
+Foundation; either version 3 of the License, or (at your option) any
+later version.
+
+This documentation is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this documentation; if not, see <http://www.gnu.org/licenses/>. -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>optim_doc: samin</title>
+
+<meta name="description" content="optim_doc: samin">
+<meta name="keywords" content="optim_doc: samin">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Function-index.html#Function-index" rel="index" title="Function index">
+<link href="Scalar-optimization.html#Scalar-optimization" rel="up" title="Scalar optimization">
+<link href="de_005fmin.html#de_005fmin" rel="next" title="de_min">
+<link href="line_005fmin.html#line_005fmin" rel="prev" title="line_min">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="samin"></a>
+<div class="header">
+<p>
+Next: <a href="de_005fmin.html#de_005fmin" accesskey="n" rel="next">de_min</a>, Previous: <a href="line_005fmin.html#line_005fmin" accesskey="p" rel="prev">line_min</a>, Up: <a href="Scalar-optimization.html#Scalar-optimization" accesskey="u" rel="up">Scalar optimization</a> &nbsp; [<a href="Function-index.html#Function-index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="A-simulated-annealing-_0028stochastic_0029-optimizer"></a>
+<h3 class="section">1.17 A simulated annealing (stochastic) optimizer</h3>
+<a name="index-samin"></a>
+
+<p>This simulated annealing algorithm implicitely honours bound
+constraints.
+</p>
+<a name="Helptext_003a-6"></a>
+<h4 class="subheading">Helptext:</h4>
+
+<a name="XREFsamin"></a><pre class="verbatim">samin: simulated annealing minimization of a function. See samin_example.m
+
+usage: [x, obj, convergence, details] = samin(&quot;f&quot;, {args}, {control})
+
+Arguments:
+* &quot;f&quot;: function name (string)
+* {args}: a cell array that holds all arguments of the function,
+* {control}: a cell array with 11 elements
+        * LB  - vector of lower bounds
+        * UB - vector of upper bounds
+        * nt - integer: # of iterations between temperature reductions
+        * ns - integer: # of iterations between bounds adjustments
+        * rt - (0 &lt; rt &lt;1): temperature reduction factor
+        * maxevals - integer: limit on function evaluations
+        * neps - integer:  number of values final result is compared to
+        * functol -   (&gt; 0): the required tolerance level for function value
+                           comparisons
+        * paramtol -  (&gt; 0): the required tolerance level for parameters
+        * verbosity - scalar: 0, 1, or 2.
+                * 0 = no screen output
+                * 1 = only final results to screen
+                * 2 = summary every temperature change
+        * minarg - integer: which of function args is minimization over?
+
+Returns:
+* x: the minimizer
+* obj: the value of f() at x
+* convergence:
+        0 if no convergence within maxevals function evaluations
+        1 if normal convergence to a point interior to the parameter space
+        2 if convergence to point very near bounds of parameter space
+          (suggest re-running with looser bounds)
+* details: a px3 matrix. p is the number of times improvements were found.
+           The columns record information at the time an improvement was found
+           * first: cumulative number of function evaluations
+           * second: temperature
+           * third: function value
+
+Example: see samin_example
+
+
+
+</pre>
+
+
+
+
+</body>
+</html>

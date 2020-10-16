@@ -1,0 +1,22 @@
+specfun >> Specfun
+Specfun
+  Ci
+  heaviside
+  cosint
+  laguerre
+  sinint
+  multinom_coeff
+  lambertw
+  Si
+  dirac
+  laplacian
+  multinom
+  psi
+  ellipke
+  expint_E1
+  expint_Ei
+  expint
+  multinom_exp
+  erfcinv
+  zeta
+  ellipj
